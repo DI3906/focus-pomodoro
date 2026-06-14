@@ -10,3 +10,15 @@
   /* FONT VARIABLES */
   --font-times: 'Times New Roman', Times, serif, sans-serif;
 }
+
+.content {
+  background-color: var(--black);
+}
+
+.todo {
+  background-color: var(--beige);
+}
+
+.pomodoro {
+  background-color: var(--beige);
+}
