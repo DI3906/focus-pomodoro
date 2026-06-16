@@ -5,6 +5,7 @@ import './globals.css';
 
 const brygada = Brygada_1918({
   subsets: ['latin'],
+  variable: '--brygada',
 });
 
 const sevenSegments = localFont({
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${brygada.className} ${sevenSegments.className} h-full antialiased`}
+      className={`${brygada.variable} ${sevenSegments.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
