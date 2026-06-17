@@ -6,9 +6,18 @@
   --black: #080808;
   --blue: #3A4B6C;
   --orange: #BE5E00;
+  --blue-opacity: #3A4B6C87;
+  --grey: #90938C;
 
   /* FONT VARIABLES */
   --font-times: 'Times New Roman', Times, serif, sans-serif;
+}
+
+/* BUTTONS */
+.button-default {
+  padding: 5px;
+  font-family: var(--brygada);
+  border-radius: 6px;
 }
 
 .content {
@@ -21,4 +30,53 @@
 
 .pomodoro {
   background-color: var(--beige);
+  font-family: var(--seven-segments);
+}
+
+.text-secondary {
+  font-family: var(--brygada);
+  color: var(--blue);
+}
+
+.add-task {
+  font-family: var(--brygada);
+  color: var(--black);
+  text-decoration: underline;
+}
+
+/* Modal */
+.hidden {
+  display: none;
+}
+
+.isShow {
+  position: fixed;
+  inset: 0 0;
+}
+
+.modal-background {
+  background-color: var(--blue-opacity);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 292px;
+  height: 125px;
+  background-color: var(--beige);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* INPUT */
+.input-default {
+  font-family: var(--brygada);
+  color: var(--black);
+  border-bottom: var(--blue) 1px solid;
+}
+
+.input-default:focus {
+  outline: none;
 }
