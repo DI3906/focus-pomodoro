@@ -34,16 +34,14 @@ const taskTest = [
 export default function Todo() {
   const [showModalAdd, setShowModalAdd] = useState(false);
 
-  function openModal(){
-    setShowModalAdd(true);
-  }
+  
 
   return (
     <div className="w-full h-full rounded-2xl p-3 flex-col justify-items-center content-center todo">
       {taskTest === undefined || taskTest.length == 0 ? (
         <div className="w-full flex flex-col items-center">
           <p className="font-(family-name:--brygada) text-(--blue)">no task for today</p>
-          <button className="add-task" onClick={openModal}>add new task</button>
+          <button className="add-task" onClick={() => {setShowModalAdd(true)}}>add new task</button>
         </div>
       ) : (
         taskTest.map((task) =>
@@ -53,6 +51,7 @@ export default function Todo() {
       )}
       <Modal
         isShow={showModalAdd}
+        onClose={() => {setShowModalAdd(false)}}
         description="add task"
       />
     </div>
