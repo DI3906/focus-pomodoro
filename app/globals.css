@@ -45,18 +45,11 @@
 }
 
 /* Modal */
-.hidden {
-  display: none;
-}
-
-.isShow {
-  position: fixed;
-  inset: 0 0;
-}
-
 .modal-background {
+  position: fixed;
+  inset: 0;
   background-color: var(--blue-opacity);
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +57,7 @@
 
 .modal-content {
   width: 292px;
-  height: 125px;
+  height: auto;
   background-color: var(--beige);
   border-radius: 10px;
   padding: 16px;

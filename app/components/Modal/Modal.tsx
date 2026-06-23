@@ -2,32 +2,29 @@ import { X } from 'lucide-react';
 
 type ModalProps = {
   isShow: boolean,
+  onClose: () => void,
   description: string,
 }
 
-export default function Modal({isShow, description}: ModalProps) {
-  const showModalClassName = isShow 
-    ? 'isShow w-screen h-screen modal-background'
-    : 'hidden'
+export default function Modal({isShow, onClose, description}: ModalProps) {
+  if (!isShow) return null;
 
   return (
-    <div className={showModalClassName}>
-      {isShow ? (
-        <div className='modal-content flex-col'>
-          <div className='modal-header justify-items-end'>
+    <div className='w-screen h-screen modal-background'>
+      <div className='modal-content flex-col'>
+        <div className='modal-header flex justify-end'>
+          <span onClick={onClose} >
             <X />
-          </div>
-          <div className='modal-body'>
-            <input className='input-default w-full' type='text' placeholder={description}/>
-          </div>
-          <div className='modal-footer justify-self-end'>
-            <button className='button-default bg-(--grey) text-(--black)'>cancel</button>
-            <button className='button-default bg-(--blue) text-(--beige)'>add</button>
-          </div>
+          </span>
         </div>
-      ) : (
-        <></>
-      )}
+        <div className='modal-body'>
+          <input className='input-default w-full' type='text' placeholder={description}/>
+        </div>
+        <div className='modal-footer flex justify-end mt-3'>
+          <button onClick={onClose} className='button-default bg-(--grey) text-(--black) mr-3'>cancel</button>
+          <button className='button-default bg-(--blue) text-(--beige)'>add</button>
+        </div>
+      </div>
     </div>
   );
 }
