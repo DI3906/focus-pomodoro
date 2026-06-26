@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 import { Brygada_1918 } from 'next/font/google';
 import './globals.css';
 
@@ -14,8 +14,8 @@ const sevenSegments = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Focus Pomodoro",
-  description: "To do with pomodoro",
+  title: 'Focus Pomodoro',
+  description: 'To do with pomodoro',
 };
 
 export default function RootLayout({

@@ -1,4 +1,3 @@
-
 export default function Pomodoro() {
   return (
     <div className="w-full h-full rounded-2xl p-3 flex-col justify-items-center content-center pomodoro">
