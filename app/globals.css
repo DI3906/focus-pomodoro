@@ -1,13 +1,13 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* COLOR VARIABLES */
-  --beige: #E7DAAC;
+  --beige: #e7daac;
   --black: #080808;
-  --blue: #3A4B6C;
-  --orange: #BE5E00;
-  --blue-opacity: #3A4B6C87;
-  --grey: #90938C;
+  --blue: #3a4b6c;
+  --orange: #be5e00;
+  --blue-opacity: #3a4b6c87;
+  --grey: #90938c;
 
   /* FONT VARIABLES */
   --font-times: 'Times New Roman', Times, serif, sans-serif;
