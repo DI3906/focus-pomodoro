@@ -1,72 +1,58 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { TaskProps } from '@/app/types/task';
+import { getTasks, deleteAllTask } from '../../utils'
 import Modal from '../Modal/Modal';
 import Task from '../Task/Task';
 
-const taskTest = [
-  {
-    id: 1,
-    description:
-      'Ajustar en un contenedor, el icono al inicio de este, el parrafo debera ocupar 2/3 aprox de todo y al final si esta completado se debera mostrar un icono para eliminar la tarea',
-    completed: false,
-  },
-  {
-    id: 2,
-    description:
-      'Si funciona pero el problema es cuando son pocas palabras y no logran ocupar todo el espacio',
-    completed: true,
-  },
-  {
-    id: 3,
-    description: 'Agregar icono para completado',
-    completed: true,
-  },
-  {
-    id: 4,
-    description:
-      'Agregar state para el cambio entre completado y no completado',
-    completed: false,
-  },
-  {
-    id: 5,
-    description: 'Agregar estilo para completado',
-    completed: false,
-  },
-];
-
 export default function Todo() {
+  const [todos, setTodos] = useState<TaskProps[]>([]);
   const [showModalAdd, setShowModalAdd] = useState(false);
+  useEffect(() => {
+    if (getTasks) {
+      setTodos(getTasks('tasks'))
+    }
+  }, []);
 
-  // const [task, setTasks] = useState([]);
 
   return (
     <div className="w-full h-full rounded-2xl p-6 flex flex-col justify-between todo">
       <ul>
-        {taskTest === undefined || taskTest.length == 0 ? (
+        {todos === undefined || todos.length == 0 ? (
           <div className="w-full flex flex-col items-center">
             <p className="font-(family-name:--brygada) text-(--blue)">
               no task for today
             </p>
           </div>
         ) : (
-          taskTest.map((task) => (
+          todos.map((task) => (
             <Task
               key={task.id}
               id={task.id}
-              detail={task.description}
-              isCompleted={task.completed}
+              detail={task.detail}
+              isCompleted={task.isCompleted}
             />
           ))
         )}
       </ul>
-      <button
-        className="add-task"
-        onClick={() => {
-          setShowModalAdd(true);
-        }}
-      >
-        add new task
-      </button>
+      <div className='justify-center '>
+        <button
+          className="delete-all-task"
+          onClick={() => {
+            deleteAllTask();
+          }}
+        >
+          delete all task
+        </button>
+        <button
+          className="add-task"
+          onClick={() => {
+            setShowModalAdd(true);
+          }}
+        >
+          add new task
+        </button>
+      </div>
       <Modal
         isShow={showModalAdd}
         onClose={() => {

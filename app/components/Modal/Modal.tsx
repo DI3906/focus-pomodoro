@@ -1,3 +1,6 @@
+'use client';
+import { useState } from 'react';
+import { addTask } from '@/app/utils';
 import { X } from 'lucide-react';
 
 type ModalProps = {
@@ -7,6 +10,8 @@ type ModalProps = {
 };
 
 export default function Modal({ isShow, onClose, description }: ModalProps) {
+  const [taskValue, setTaskValue] = useState('');
+
   if (!isShow) return null;
 
   return (
@@ -19,6 +24,7 @@ export default function Modal({ isShow, onClose, description }: ModalProps) {
         </div>
         <div className="modal-body">
           <input
+            onChange={e => setTaskValue(e.target.value)}
             className="input-default w-full"
             type="text"
             placeholder={description}
@@ -31,7 +37,14 @@ export default function Modal({ isShow, onClose, description }: ModalProps) {
           >
             cancel
           </button>
-          <button className="button-default bg-(--blue) text-(--beige)">
+          <button
+            onClick={() => {
+              const addTaskTest = addTask(taskValue);
+              if (addTaskTest) {
+                alert('add task test modal');
+              }
+            }}
+            className="button-default bg-(--blue) text-(--beige)">
             add
           </button>
         </div>
