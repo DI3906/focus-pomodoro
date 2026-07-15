@@ -1,23 +1,36 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { TaskProps } from '@/app/types/task';
-import { getTasks, deleteAllTask } from '../../utils'
+import { addTask, getTasks, deleteTask, updateStatus, deleteAllTask } from '../../utils'
 import Modal from '../Modal/Modal';
 import Task from '../Task/Task';
 
 export default function Todo() {
-  const [todos, setTodos] = useState<TaskProps[]>([]);
+  const [todos, setTodos] = useState<TaskProps[]>(getTasks('tasks'));
   const [showModalAdd, setShowModalAdd] = useState(false);
-  useEffect(() => {
-    if (getTasks) {
-      setTodos(getTasks('tasks'))
-    }
-  }, []);
 
+  const handleAddTask = (description: string) => {
+    const updated = addTask(description);
+
+    setTodos(updated);
+    setShowModalAdd(false);
+  }
+
+  const handleDeleteTask = (id: number) => {
+    const updated = deleteTask(id);
+
+    setTodos(updated);
+  }
+
+  const handleUpdateStatusTask = (id: number) => {
+    const updated = updateStatus(id);
+
+    setTodos(updated);
+  }
 
   return (
     <div className="w-full h-full rounded-2xl p-6 flex flex-col justify-between todo">
-      <ul>
+      <div>
         {todos === undefined || todos.length == 0 ? (
           <div className="w-full flex flex-col items-center">
             <p className="font-(family-name:--brygada) text-(--blue)">
@@ -31,10 +44,12 @@ export default function Todo() {
               id={task.id}
               detail={task.detail}
               isCompleted={task.isCompleted}
+              onDelete={handleDeleteTask}
+              onComplete={handleUpdateStatusTask}
             />
           ))
         )}
-      </ul>
+      </div>
       <div className='justify-center '>
         <button
           className="delete-all-task"
@@ -59,6 +74,7 @@ export default function Todo() {
           setShowModalAdd(false);
         }}
         description="add task"
+        onAddTask={handleAddTask}
       />
     </div>
   );
