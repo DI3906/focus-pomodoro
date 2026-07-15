@@ -1,8 +1,10 @@
 import { TaskProps } from './types/task';
 
 export const getTasks = (keyStorage: string) => {
-  const tasks = localStorage.getItem(keyStorage);
-  return tasks ? JSON.parse(tasks) : [];
+  if (typeof window != 'undefined') {
+    const tasks = localStorage.getItem(keyStorage);
+    return tasks ? JSON.parse(tasks) : [];
+  }
 };
 
 export const addTask = (description: string) => {
@@ -11,29 +13,37 @@ export const addTask = (description: string) => {
     id: Date.now(),
     detail: description,
     isCompleted: false,
+    onDelete: (()=>{}),
+    onComplete: (()=>{}),
   };
 
+  const updatedTasks = [...tasks, newTask];
   localStorage.setItem('tasks', JSON.stringify([...tasks, newTask]));
-  return true;
+  
+  return updatedTasks;
 };
 
 export const updateStatus = (idTask: number) => {
   const allTasks = getTasks('tasks');
+  
   allTasks.find((task: TaskProps) => {
     if (task.id === idTask) {
       task.isCompleted = true;
     }
   });
   localStorage.setItem('tasks', JSON.stringify(allTasks));
+
+  return allTasks;
 };
 
 export const deleteTask = (idTask: number) => {
   const allTasks = getTasks('tasks');
-  const deleteTaskT = allTasks.filter((task: TaskProps) => task.id !== idTask);
+  const updated = allTasks.filter((task: TaskProps) => task.id !== idTask);
   
-  localStorage.setItem('tasks', JSON.stringify(deleteTaskT));
+  localStorage.setItem('tasks', JSON.stringify(updated));
+  return updated;
 };
 
 export const deleteAllTask = () => {
-  return localStorage.clear();
+  return localStorage.setItem('tasks', JSON.stringify([]));
 };
