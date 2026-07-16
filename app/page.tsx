@@ -1,5 +1,5 @@
 import Todo from './components/Todo/Todo';
-import Pomodoro from './components/Pomodoro/Pomodoro';
+import Watch from './Watch/Watch';
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <Todo />
       </div>
       <div className="w-2/3">
-        <Pomodoro />
+        <Watch />
       </div>
     </main>
   );
