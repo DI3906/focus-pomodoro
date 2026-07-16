@@ -6,7 +6,9 @@ export default function Task({ id, detail, isCompleted, onDelete, onComplete }: 
     <div className="flex w-full">
       {isCompleted ? (
         <div className="flex items-start w-full">
-          <SquareCheckBig className="shrink-0" />
+          <button onClick={() => onComplete(id)}>
+            <SquareCheckBig className="shrink-0" />
+          </button>
           <p className="flex-1 line-through mx-3">{detail}</p>
           <button onClick={() => onDelete(id)}>
             <Trash2 className="shrink-0" color="#BE5E00" />
@@ -14,9 +16,7 @@ export default function Task({ id, detail, isCompleted, onDelete, onComplete }: 
         </div>
       ) : (
         <div className="flex items-start w-full">
-          <button
-            onClick={() => onComplete(id)}
-          >
+          <button onClick={() => onComplete(id)}>
             <SquareDashed className="shrink-0" />
           </button>
           <p className="ml-3 mr-6">{detail}</p>

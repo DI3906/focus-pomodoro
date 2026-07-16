@@ -28,7 +28,7 @@ export const updateStatus = (idTask: number) => {
   
   allTasks.find((task: TaskProps) => {
     if (task.id === idTask) {
-      task.isCompleted = true;
+      task.isCompleted = !task.isCompleted;
     }
   });
   localStorage.setItem('tasks', JSON.stringify(allTasks));
