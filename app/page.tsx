@@ -1,5 +1,5 @@
 import Todo from './components/Todo/Todo';
-import Watch from './Watch/Watch';
+import Watch from './components/Watch/Watch';
 
 export default function Home() {
   return (
