@@ -1,7 +1,13 @@
 import { TaskProps } from '@/app/types/task';
 import { SquareDashed, SquareCheckBig, Trash2 } from 'lucide-react';
 
-export default function Task({ id, detail, isCompleted, onDelete, onComplete }: TaskProps) {
+export default function Task({
+  id,
+  detail,
+  isCompleted,
+  onDelete,
+  onComplete,
+}: TaskProps) {
   return (
     <div className="flex w-full">
       {isCompleted ? (

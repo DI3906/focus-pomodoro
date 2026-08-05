@@ -1,7 +1,13 @@
 'use client';
 import { useState } from 'react';
 import { TaskProps } from '@/app/types/task';
-import { addTask, getTasks, deleteTask, updateStatus, deleteAllTask } from '../../utils'
+import {
+  addTask,
+  getTasks,
+  deleteTask,
+  updateStatus,
+  deleteAllTask,
+} from '../../utils';
 import Modal from '../Modal/Modal';
 import Task from '../Task/Task';
 
@@ -14,19 +20,19 @@ export default function Todo() {
 
     setTodos(updated);
     setShowModalAdd(false);
-  }
+  };
 
   const handleDeleteTask = (id: number) => {
     const updated = deleteTask(id);
 
     setTodos(updated);
-  }
+  };
 
   const handleUpdateStatusTask = (id: number) => {
     const updated = updateStatus(id);
 
     setTodos(updated);
-  }
+  };
 
   return (
     <div className="w-full h-full rounded-2xl p-6 flex flex-col justify-between todo">
@@ -50,7 +56,7 @@ export default function Todo() {
           ))
         )}
       </div>
-      <div className='justify-center '>
+      <div className="justify-center ">
         <button
           className="delete-all-task"
           onClick={() => {

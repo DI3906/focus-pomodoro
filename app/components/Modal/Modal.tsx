@@ -9,7 +9,12 @@ type ModalProps = {
   description: string;
 };
 
-export default function Modal({ isShow, onClose, description, onAddTask }: ModalProps) {
+export default function Modal({
+  isShow,
+  onClose,
+  description,
+  onAddTask,
+}: ModalProps) {
   const [taskValue, setTaskValue] = useState('');
 
   if (!isShow) return null;
@@ -24,7 +29,7 @@ export default function Modal({ isShow, onClose, description, onAddTask }: Modal
         </div>
         <div className="modal-body">
           <input
-            onChange={e => setTaskValue(e.target.value)}
+            onChange={(e) => setTaskValue(e.target.value)}
             className="input-default w-full"
             type="text"
             placeholder={description}
@@ -39,7 +44,8 @@ export default function Modal({ isShow, onClose, description, onAddTask }: Modal
           </button>
           <button
             onClick={() => onAddTask(taskValue)}
-            className="button-default bg-(--blue) text-(--beige)">
+            className="button-default bg-(--blue) text-(--beige)"
+          >
             add
           </button>
         </div>
