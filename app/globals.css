@@ -14,6 +14,10 @@
   font-family: var(--brygada);
 }
 
+button {
+  cursor: pointer;
+}
+
 /* BUTTONS */
 .button-default {
   padding: 5px;
