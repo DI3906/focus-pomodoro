@@ -8,6 +8,7 @@ import {
   updateStatus,
   deleteAllTask,
 } from '../../utils';
+import { Maximize2 } from 'lucide-react';
 import Modal from '../Modal/Modal';
 import Task from '../Task/Task';
 
@@ -35,8 +36,14 @@ export default function Todo() {
   };
 
   return (
-    <div className="w-full h-full rounded-2xl p-6 flex flex-col justify-between todo">
-      <div>
+    <div className="w-full h-full rounded-2xl flex flex-col justify-between todo">
+      <div className="header-todo">
+        <p className="header-todo-title">To-do</p>
+        <button className="header-todo-button">
+          <Maximize2 color="#3a4b6c"/>
+        </button>
+      </div>
+      <div className="p-4">
         {todos === undefined || todos.length == 0 ? (
           <div className="w-full flex flex-col items-center">
             <p className="font-(family-name:--brygada) text-(--blue)">

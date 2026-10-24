@@ -98,3 +98,41 @@ button {
 .input-default:focus {
   outline: none;
 }
+
+/* MEDIA QUERIES */
+/* MOBIL */
+@media (max-width: 480px) {
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
+  }
+
+  .content-todo,
+  .content-watch {
+    width: 100%;
+    margin: 0;
+  }
+
+  .header-todo {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 8px 0;
+  }
+
+  .header-todo-button {
+    background-color: var(--beige);
+    border-radius: 3px;
+  }
+  
+  .header-todo-title {
+    font-weight: bold;
+    color: var(--beige);
+  }
+
+  .todo {
+    border: var(--blue) 10px solid;
+    border-top-width: 0;
+  }
+}
