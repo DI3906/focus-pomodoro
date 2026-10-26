@@ -8,6 +8,7 @@
   --orange: #be5e00;
   --blue-opacity: #3a4b6c87;
   --grey: #90938c;
+  --white: #d9d9d9;
 
   /* FONT VARIABLES */
   --font-times: 'Times New Roman', Times, serif, sans-serif;
@@ -23,6 +24,13 @@ button {
   padding: 5px;
   font-family: var(--brygada);
   border-radius: 6px;
+}
+
+.header-watch-button,
+.header-todo-button,
+.modal-close-button {
+  background-color: var(--beige);
+  border-radius: 3px;
 }
 
 .button-control {
@@ -84,15 +92,29 @@ button {
   width: 292px;
   height: auto;
   background-color: var(--beige);
-  border-radius: 10px;
-  padding: 16px;
+  border-radius: 10px 10px 0 0;
+  border: var(--blue) 10px solid;
+  border-top-width: 0;
+}
+
+.modal-header {
+  background-color: var(--blue);
+  padding: 8px 0;
+}
+
+.modal-body,
+.modal-footer {
+  padding: 0 16px 16px 16px;
 }
 
 /* INPUT */
 .input-default {
   font-family: var(--brygada);
   color: var(--black);
-  border-bottom: var(--blue) 1px solid;
+  border: var(--blue) 2px solid;
+  background-color: var(--white);
+  margin-top: 16px;
+  padding: 5px;
 }
 
 .input-default:focus {
@@ -123,12 +145,6 @@ button {
     border-radius: 5px 5px 0 0;
   }
 
-  .header-watch-button,
-  .header-todo-button {
-    background-color: var(--beige);
-    border-radius: 3px;
-  }
-  
   .header-watch-title,
   .header-todo-title {
     font-weight: bold;

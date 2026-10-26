@@ -23,8 +23,8 @@ export default function Modal({
     <div className="w-screen h-screen modal-background">
       <div className="modal-content flex-col">
         <div className="modal-header flex justify-end">
-          <span onClick={onClose}>
-            <X />
+          <span className="modal-close-button" onClick={onClose}>
+            <X color="#3a4b6c" />
           </span>
         </div>
         <div className="modal-body">
@@ -35,16 +35,16 @@ export default function Modal({
             placeholder={description}
           />
         </div>
-        <div className="modal-footer flex justify-end mt-3">
+        <div className="modal-footer flex justify-end">
           <button
             onClick={onClose}
-            className="button-default bg-(--grey) text-(--black) mr-3"
+            className="button-default shadow mr-3"
           >
             cancel
           </button>
           <button
             onClick={() => onAddTask(taskValue)}
-            className="button-default bg-(--blue) text-(--beige)"
+            className="button-default shadow"
           >
             add
           </button>
