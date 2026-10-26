@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Pomodoro from '../Pomodoro/Pomodoro';
 import Stopwatch from '../Stopwatch/Stopwatch';
-import { Maximize2 } from 'lucide-react';
+import { Maximize2, Minus } from 'lucide-react';
 
 export default function Watch() {
   const [showTimer, setShowTimer] = useState(false);
@@ -11,9 +11,14 @@ export default function Watch() {
     <div className="w-full h-full rounded-2xl flex flex-col justify-between bg-(--beige) watch">
       <div className="header-watch">
         <p className="header-watch-title">Watch</p>
-        <button className="header-watch-button">
-          <Maximize2 color="#3a4b6c"/>
-        </button>
+        <div className="flex">
+          <button className="header-watch-button mr-2">
+            <Minus color="#3a4b6c" />
+          </button>
+          <button className="header-watch-button">
+            <Maximize2 color="#3a4b6c" />
+          </button>
+        </div>
       </div>
       {/* <div className="w-[559] h-[340]"> */}
       <div className="">
